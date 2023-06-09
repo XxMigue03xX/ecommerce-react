@@ -1,0 +1,32 @@
+.home-container{
+    display: grid;
+    grid-template-columns: minmax(20%, 250px) 1fr;
+}
+.form-and-products {
+    position: relative;
+}
+.home__form {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 4rem;
+    height: 5rem;
+    width: 80%;
+    display: flex;
+}
+.home__form input {
+    padding: 0 2rem;
+    width: 90%;
+    height: 100%;
+    color: #515151;
+    border: 1px solid #dcd9d9;
+}
+.home__form button {
+    width: 10%;
+    height: 100%;
+    background-color: #f85555;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: white;
+}

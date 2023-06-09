@@ -1,0 +1,47 @@
+.wrapper-cart {
+    position: fixed;
+    inset: 0;
+    top: 8rem;
+    z-index: 1;
+
+    display: flex;
+    justify-content: end;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in;
+}
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.cart {
+    width: 100%;
+    max-width: 35rem;
+    height: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.cart__title {
+    margin: 0;
+}
+.cart__container-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
