@@ -1,7 +1,6 @@
 .product-list {
     list-style: none;
-    margin: 5rem;
-    margin-top: 15rem;
+    margin: 0 5rem 5rem 5rem;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 250px));

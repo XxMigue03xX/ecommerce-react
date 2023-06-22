@@ -25,7 +25,7 @@ const Home = () => {
 
     return (
       <div className="home-container">
-        <aside>
+        <aside className='categories-filter-container'>
           <CategoriesFilter
             initialCategories={categories}
             formId={formId}
@@ -34,18 +34,20 @@ const Home = () => {
         </aside>
 
         <section className='form-and-products'>
-          <Form id={formId} ref={formRef} className='home__form'>
-            <input
-              type="search"
-              name="title"
-              value={titleValue}
-              onChange={(e)=>setTitleValue(e.target.value)}
-              placeholder="What are you looking for?"
-            />
-            <button>
-            <i className='bx bx-search' ></i>
-            </button>
-          </Form>
+          <div className='form-container'>
+            <Form id={formId} ref={formRef} className='home__form'>
+              <input
+                type="search"
+                name="title"
+                value={titleValue}
+                onChange={(e)=>setTitleValue(e.target.value)}
+                placeholder="What are you looking for?"
+              />
+              <button>
+              <i className='bx bx-search' ></i>
+              </button>
+            </Form>
+          </div>
           <ProductList categories={categories} title={title}/>
         </section>
       </div>

@@ -10,6 +10,18 @@ const PurchasesList = () => {
 
     if(isError) return <p>{error.message ?? "No se pudo cargar la lista de compras"}</p>
 
+    function purchaseDate(date) {
+        const objectDate = new Date(date);
+        const day = objectDate.getDate();
+        const month = objectDate.getMonth() + 1;
+        const year = objectDate.getFullYear();
+      
+        const formatDay = day < 10 ? `0${day}` : day;
+        const formatMonth = month < 10 ? `0${month}` : month;
+      
+        return `${formatDay}/${formatMonth}/${year}`;
+    }
+
     return (
         <ul className="purchases-list">
             {data.map(purchase => (
@@ -19,7 +31,7 @@ const PurchasesList = () => {
                             <img src={purchase.product.images[0].url} alt={purchase.product.title} />
                         </div>
                         <h5 className="purchase-title">{purchase.product.title}</h5>
-                        <p className="purchase-date">{purchase.createdAt}</p>
+                        <p className="purchase-date">{purchaseDate(purchase.createdAt)}</p>
                         <div className="purchase-quantity-container">
                             <p className="purchase-quantity">{purchase.quantity}</p>
                         </div>

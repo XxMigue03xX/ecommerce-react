@@ -1,0 +1,42 @@
+.categories-filter {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  border: none;
+}
+.categories-filter__title {
+  margin-bottom: 1rem;
+  color: #515151;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: solid 1px #515151;
+}
+.input-container {
+  position: relative;
+}
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.input-label {
+  cursor: pointer;
+  color: #515151;
+  font-size: 1.6rem;
+}
+
+.input-container input:checked + .input-label {
+  color: #2e2e2e;
+  font-weight: bold;
+}

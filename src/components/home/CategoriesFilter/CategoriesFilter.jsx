@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useCategories } from "../../../hooks/queries/useCategories";
-import "./CategoriesFilter";
+import "./CategoriesFilter.css";
 
 const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }) => {
   const { data, isLoading, isError, error } = useCategories();
@@ -42,11 +42,12 @@ const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }
     return <p>{error.message ?? "No fue posible obtener las categorías"}</p>;
 
   return (
-    <fieldset form={formId}>
-      <legend>Categories</legend>
+    <fieldset form={formId} className="categories-filter">
+      <legend className="categories-filter__title">Categories</legend>
 
-      <div>
+      <div className="input-container">
         <input
+        className="input"
           onChange={(e) => handleEmpty(e.target.checked)}
           checked={categoryIdList.length === 0}
           type="checkbox"
@@ -54,12 +55,13 @@ const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }
           value=""
           id="empty-category"
         />
-        <label htmlFor="empty-category">All</label>
+        <label htmlFor="empty-category" className="input-label">All</label>
       </div>
 
       {data.map((category) => (
-        <div key={category.id}>
+        <div key={category.id} className="input-container">
           <input
+          className="input"
             checked={categoryIdList.includes(category.id)}
             onChange={(e) => handleChange(e.target.checked, category.id)}
             type="checkbox"
@@ -68,7 +70,7 @@ const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }
             id={category.id + "-category"}
             form={formId}
           />
-          <label htmlFor={category.id + "-category"}>{category.name}</label>
+          <label htmlFor={category.id + "-category"} className="input-label">{category.name}</label>
         </div>
       ))}
     </fieldset>

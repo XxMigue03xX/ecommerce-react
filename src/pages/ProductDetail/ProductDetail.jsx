@@ -51,46 +51,50 @@ const ProductDetail = () => {
   if(isError) return <p>{error.message ?? "No se pudo cargar el producto"}</p>
   
   return (
-    <section>
-      <section>
-        <div>
-          <img src={data.images[0].url} alt={data.title} />
+    <section className='product-detail'>
+      <section className='product-detail__info'>
+        <div className='product-detail__img-section'>
+          <div className='product-detail__img-container'>
+            <img src={data.images[0].url} alt={data.title} />
+          </div>
         </div>
-        {productId}
-
-        <div>
-          <h3>{data.brand}</h3>
-          <h2>{data.title}</h2>
-
-          <p>
+        <div className='product-detail__details'>
+          <h3 className='product-detail__brand'>{data.brand}</h3>
+          <h2 className='product-detail__title'>{data.title}</h2>
+          <p className='product-detail__description'>
             {data.description}
           </p>
-
-          <div>
-            <div>
-              <h3>Price</h3>
-              <p>
+          <div className='product-detail__price-and-quantity'>
+            <div className='product-detail__price-section'>
+              <h3 className='product-detail__price-label'>Price</h3>
+              <p className='product-detail__price-content'>
                 <en>$ {data.price}</en>
               </p>
             </div>
-            <div>
-              <h3>Quantity</h3>
-              <div>
-                <button onClick={decrement}>-</button>
-                <span>{quantity}</span>
-                <button onClick={increment}>+</button>
+            <div className='product-detail__quantity-section'>
+              <h3 className='product-detail__quantity-label'>Quantity</h3>
+              <div className='product-detail__quantity-container'>
+                <button className='product-detail__quantity-btn' onClick={decrement}>-</button>
+                <div className='product-detail__quantity-content'>{quantity}</div>
+                <button className='product-detail__quantity-btn' onClick={increment}>+</button>
               </div>
             </div>
           </div>
           {!isProductInCart && (
-            <button onClick={handleAddToCart}>Add to cart</button>
+            <button className='product-detail__add-btn' onClick={handleAddToCart}>
+              <p>Add to cart</p>
+              <i className='bx bx-cart' ></i>
+            </button>
           )}
           {isProductInCart && (
-            <button>Update in cart</button>
+            <button className='product-detail__add-btn'>
+              <p>Update in cart</p>
+              <i className='bx bx-cart' ></i>
+            </button>
           )}
         </div>
       </section>
-
+      <h4>Discover similar items</h4>
       <ProductList categories={data.categoryId} excludedIds={[Number(productId)]}/>
     </section>
   );

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "../../components/login/LoginForm/LoginForm";
 import { startSessionThunk } from "../../store/slices/authSlice";
 import { Navigate, useLocation } from "react-router-dom";
+import "./Login.css"
 
 const Login = () => {
   const isLogged = useSelector((store) => store.authSlice.isLogged);
@@ -16,25 +17,22 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <section>
-        <p>Welcome! Enter your email and password to continue</p>
-
-        <section>
-          <h3>Test data</h3>
-          <ul>
+    <div className="login-page-container">
+      <section className="login-container">
+        <p className="login-message">Welcome! Enter your email and password to continue</p>
+        <section className="test-data">
+          <h3 className="test-data__text">Test data</h3>
+          <ul className="test-data__list">
             <li>
-              <en>Email</en>: miguel@gmail.com
+              <en>📧</en> miguel@gmail.com
             </li>
             <li>
-              <en>Password</en>: 2412
+              <en>🔒</en> 2412
             </li>
           </ul>
         </section>
-
         <LoginForm onLogin={handleLogin}/>
       </section>
-
       {isLogged && <Navigate to={from ?? "/"}/>}
     </div>
   );

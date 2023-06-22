@@ -1,6 +1,6 @@
 import { useId } from "react";
-import "./LoginForm.css";
 import { useState } from "react";
+import "./LoginForm.css";
 
 const LoginForm = ({ onLogin }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -27,11 +27,12 @@ const LoginForm = ({ onLogin }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <div className="login-label">
         <label htmlFor={nameId}>Email</label>
       </div>
       <input
+        className="email-input"
         onChange={handleChange}
         type="email"
         value={formData.email}
@@ -39,25 +40,28 @@ const LoginForm = ({ onLogin }) => {
         name="email"
         required
       />
-
-      <div>
+      <div className="login-label">
         <label htmlFor={passwordId}>Password</label>
       </div>
-      <input
-        onChange={handleChange}
-        value={formData.password}
-        type={isPasswordVisible ? "" : "password"}
-        id={passwordId}
-        name="password"
-        required
-      />
-      <button
-        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-        type="button"
-      >
-        <i className="bx bx-low-vision"></i>
-      </button>
-      <button type="submit">Login</button>
+      <div className="password">
+        <input
+          className="password-input"
+          onChange={handleChange}
+          value={formData.password}
+          type={isPasswordVisible ? "" : "password"}
+          id={passwordId}
+          name="password"
+          required
+        />
+        <button
+          className="password-btn"
+          onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+          type="button"
+        >
+          <i className="bx bx-low-vision"></i>
+        </button>
+      </div>
+      <button className="login-btn" type="submit">Login</button>
     </form>
   );
 };

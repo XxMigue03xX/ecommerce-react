@@ -3,12 +3,17 @@
     grid-template-columns: minmax(20%, 250px) 1fr;
 }
 .form-and-products {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .home__form {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
     margin-top: 4rem;
     height: 5rem;
     width: 80%;
