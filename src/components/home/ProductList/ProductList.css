@@ -9,6 +9,6 @@
     align-items: center;
 }
 .loader-products {
-    justify-self: center;
+    align-self: center;
     height: 100vh;
 }
