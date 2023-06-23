@@ -35,3 +35,6 @@
     padding: 0.5rem;
     color: white;
 }
+.categories-filter-container {
+    position: relative;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useCategories } from "../../../hooks/queries/useCategories";
 import "./CategoriesFilter.css";
+import Loader from "../../common/Loader/Loader";
 
 const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }) => {
   const { data, isLoading, isError, error } = useCategories();
@@ -36,7 +37,11 @@ const CategoriesFilter = ({ formId, onChangeCategories, initialCategories = [] }
     else onChangeCategories();
   }, [categoryIdList, onChangeCategories]);
 
-  if (isLoading) return <p>Loading categories...</p>;
+  if (isLoading) return (
+    <div className="loader-categories">
+      <Loader/>
+    </div>
+  );
 
   if (isError)
     return <p>{error.message ?? "No fue posible obtener las categorías"}</p>;

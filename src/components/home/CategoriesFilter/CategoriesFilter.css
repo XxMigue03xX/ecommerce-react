@@ -35,8 +35,13 @@
   color: #515151;
   font-size: 1.6rem;
 }
-
 .input-container input:checked + .input-label {
   color: #2e2e2e;
   font-weight: bold;
+}
+.loader-categories {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 2rem;
 }

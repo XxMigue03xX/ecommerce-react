@@ -1,4 +1,5 @@
 import { usePurchases } from "../../../hooks/queries/usePurchases"
+import Loader from "../../common/Loader/Loader";
 import "./PurchasesList.css"
 
 const PurchasesList = () => {
@@ -6,7 +7,11 @@ const PurchasesList = () => {
 
     console.log(data);
 
-    if(isLoading) return <p>Loading purchases...</p>
+    if (isLoading) return (
+        <div className="loader-purchases">
+          <Loader/>
+        </div>
+      );
 
     if(isError) return <p>{error.message ?? "No se pudo cargar la lista de compras"}</p>
 

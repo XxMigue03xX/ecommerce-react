@@ -40,11 +40,13 @@ const CartProduct = ({ cartProduct }) => {
 
   return (
     <article className="cart-product">
-      <div className="cart-product__img">
-        <img
-          src={cartProduct.product.images[0].url}
-          alt={cartProduct.product.title}
-        />
+      <div className="cart-product__img-section">
+        <div className="cart-product__img">
+          <img
+            src={cartProduct.product.images[0].url}
+            alt={cartProduct.product.title}
+          />
+        </div>
       </div>
       <div className="cart-product__details">
         <header className="cart-product__header">
@@ -57,26 +59,26 @@ const CartProduct = ({ cartProduct }) => {
             <i className="bx bx-trash"></i>
           </button>
         </header>
-        <div>
+        <div className="cart-product__controls-container">
           <div className="cart-product__controls">
-            <button onClick={decrement} className="cart-product__btn">
+            <button onClick={decrement} className="cart-product__btns-">
               -
             </button>
-            <span>{quantity}</span>
-            <button onClick={increment} className="cart-product__btn">
+            <div className="cart-product__quantity-container">{quantity}</div>
+            <button onClick={increment} className="cart-product__btns-">
               +
             </button>
           </div>
           {initialQuantity !== quantity && (
-            <button onClick={handleUpdate} disabled={isLoading}>
+            <button onClick={handleUpdate} disabled={isLoading} className="cart-product__update-btn">
               Update cart
             </button>
           )}
         </div>
-        <div>
+        <div className="cart-product__total-container">
           <h5>Total:</h5>
           <p>
-            <en>$ {(initialQuantity * price).toFixed(2)}</en>
+            $ {(initialQuantity * price).toFixed(2)}
           </p>
         </div>
       </div>

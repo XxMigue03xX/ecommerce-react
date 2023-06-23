@@ -73,3 +73,7 @@
     text-align: center;
     color: #515151;
 }
+.loader-purchases {
+    justify-self: center;
+    height: 100vh;
+}

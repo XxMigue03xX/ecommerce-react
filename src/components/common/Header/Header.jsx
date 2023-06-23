@@ -50,7 +50,7 @@ const Header = ({updateCartVisible}) => {
           {isLogged && (
           <li className="header__list__item">
             <button className="header__list__btn" onClick={logout}>
-            <i className='bx bx-log-out'></i>
+              <i className='bx bx-log-out'></i>
             </button>
           </li>
           )}
