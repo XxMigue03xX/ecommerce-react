@@ -48,3 +48,8 @@
     color: #2fa8f8;
     font-size: 1.8rem;
 }
+@media (max-width: 500px){
+    .profile__user-container {
+        width: 80%;
+    }
+}

@@ -38,3 +38,25 @@
 .categories-filter-container {
     position: relative;
 }
+@media (max-width: 500px){
+    .home-container{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .form-and-products {
+        width: 100%;
+        gap: 22.5rem;
+    }
+    .categories-filter-container {
+        position: absolute;
+        top: 180px;
+    }
+    .home__form input {
+        width: 75%;
+    }
+    .home__form button {
+        width: 25%;
+    }
+}

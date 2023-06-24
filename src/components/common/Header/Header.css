@@ -54,3 +54,31 @@
 .header__navlink--active {
     color: orange;
 }
+@media (max-width: 900px){
+    .header-container {
+        height: 6rem;
+        border-bottom: none;
+    }
+    .header__title {
+        padding-left: 5px;
+        font-size: 2.5rem;
+    }
+    .header__list-container {
+        width: 50%;
+    }
+    .header__list__item {
+        height: 100%;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: none;
+    }
+    .header__list__btn {
+        font-size: inherit;
+        background-color: transparent;
+        border: none;
+        color: #ababab;
+        cursor: pointer;
+    }
+}

@@ -120,3 +120,8 @@
 .empty-cart__img img {
     max-width: 100%;
 }
+@media (max-width: 600px){
+    .cart {
+        max-width: 95%;
+    }
+}

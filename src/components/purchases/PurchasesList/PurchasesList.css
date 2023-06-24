@@ -60,7 +60,7 @@
 .purchase-quantity {
     width: 50%;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
     border: solid 1px;
     border-radius: 5px;
 }
@@ -72,8 +72,38 @@
     align-items: center;
     text-align: center;
     color: #515151;
+    font-size: 1.5rem;
 }
 .loader-purchases {
     justify-self: center;
     height: 100vh;
+}
+@media (max-width: 900px){
+    .purchases-list {
+        width: 100%;
+    }
+}
+@media (max-width: 600px){
+    .purchase-img-container {
+        width: 25%;
+    }
+    .purchase-title {
+        width: 35%;
+        font-size: 1.2rem;
+    }
+    .purchase-date {
+        width: 0%;
+        font-size: 0;
+        color: transparent;
+    }
+    .purchase-quantity-container {
+        width: 20%;
+    }
+    .purchase-quantity {
+        width: 100%;
+    }
+    .purchase-price {
+        width: 20%;
+        font-size: 1.2rem;
+    }
 }

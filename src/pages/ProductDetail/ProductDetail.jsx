@@ -5,20 +5,24 @@ import { useEffect, useState } from 'react';
 import { useAddProductToCart } from '../../hooks/queries/useAddProductToCart';
 import { useSelector } from 'react-redux';
 import { useCart } from '../../hooks/queries/useCart';
-import './ProductDetail.css'
 import Loader from '../../components/common/Loader/Loader';
+import { useUpdateCart } from '../../hooks/queries/useUpdateCart';
+import './ProductDetail.css'
 
 const ProductDetail = () => {
   const navigate = useNavigate();
   const isLogged = useSelector((store) => store.authSlice.isLogged);
   const { productId } = useParams();
   const { mutate } = useAddProductToCart();
+  const updateCart = useUpdateCart();
   const cartQuery = useCart();
   const { data, isLoading, isError, error } = useProductById(productId);
   
   const isProductInCart = cartQuery.data?.some(
     cartProduct => cartProduct.productId === data?.id
   ) ?? false;
+
+  const idInCart = cartQuery.data?.find(cartProduct => Number(cartProduct.productId) === Number(productId))?.id ?? null;
     
   const quantityInCart = cartQuery.data?.find(cartProduct => Number(cartProduct.productId) === Number(productId))?.quantity ?? 1;
     
@@ -30,24 +34,26 @@ const ProductDetail = () => {
     if(newQuantity<=stock){
       setQuantity(newQuantity);
     }
-  }
+  };
   const decrement = () => {
     const newQuantity = quantity-1;
     if(newQuantity>=1){
       setQuantity(newQuantity);
     }
-  }
-
+  };
   const handleAddToCart = () => {
     if(isLogged) mutate({quantity, productId})
     else navigate("/login");
-  }
-
+  };
+  const handleUpdate = () => {
+    if (isLogged) {
+      updateCart.mutate({ cartProductId: idInCart, newQuantity: quantity });
+    }
+  };
   useEffect(() => {
     setQuantity(Number(quantityInCart));
   }, [quantityInCart])
 
-  
   return (
     <section className='product-detail'>
       {isLoading && (
@@ -95,7 +101,7 @@ const ProductDetail = () => {
                   </button>
                 )}
                 {isProductInCart && (
-                  <button className='product-detail__add-btn'>
+                  <button className='product-detail__add-btn' onClick={handleUpdate}>
                     <p>Update in cart</p>
                     <i className='bx bx-cart' ></i>
                   </button>

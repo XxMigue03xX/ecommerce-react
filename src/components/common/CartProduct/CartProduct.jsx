@@ -25,13 +25,11 @@ const CartProduct = ({ cartProduct }) => {
       setQuantity(newQuantity);
     }
   };
-
   const handleUpdate = () => {
     if (isLogged) {
       mutate({ cartProductId: cartProduct.id, newQuantity: quantity });
     }
   };
-
   const handleDelete = () => {
     if (isLogged) {
       deleteMutation.mutate(cartProduct.id);
