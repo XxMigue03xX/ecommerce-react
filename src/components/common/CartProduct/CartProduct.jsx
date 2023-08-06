@@ -41,7 +41,7 @@ const CartProduct = ({ cartProduct }) => {
       <div className="cart-product__img-section">
         <div className="cart-product__img">
           <img
-            src={cartProduct.product.images[0].url}
+            src={cartProduct.product.images?.[0]?.url}
             alt={cartProduct.product.title}
           />
         </div>

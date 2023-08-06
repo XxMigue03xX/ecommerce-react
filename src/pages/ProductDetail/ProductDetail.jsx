@@ -69,7 +69,7 @@ const ProductDetail = () => {
             <section className='product-detail__info'>
               <div className='product-detail__img-section'>
                 <div className='product-detail__img-container'>
-                  <img src={data.images[0].url} alt={data.title} />
+                  <img src={data.images?.[0]?.url} alt={data.title} />
                 </div>
               </div>
               <div className='product-detail__details'>
@@ -82,7 +82,7 @@ const ProductDetail = () => {
                   <div className='product-detail__price-section'>
                     <h3 className='product-detail__price-label'>Price</h3>
                     <p className='product-detail__price-content'>
-                      <en>$ {data.price}</en>
+                      <en>$ {Number(data.price).toFixed(2)}</en>
                     </p>
                   </div>
                   <div className='product-detail__quantity-section'>

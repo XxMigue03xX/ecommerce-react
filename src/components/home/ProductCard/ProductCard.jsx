@@ -37,12 +37,12 @@ const ProductCard = ({ product }) => {
           <div className="product-cart__container-img">
             <img
               className="product-cart__img product-cart__container-img--visible"
-              src={product.images[0].url}
+              src={product.images[0]?.url}
               alt={product.title + "image 1"}
             />
             <img
               className="product-cart__img product-cart__container-img--hidden"
-              src={product.images[1].url}
+              src={product.images[1]?.url}
               alt={product.title + "image 2"}
             />
           </div>
@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
           <strong className="product__title">{product.title}</strong>
           <p className="product__price-label">Price</p>
           <strong className="product__price-value">
-            <en>$ {product.price}</en>
+            <en>$ {Number(product.price).toFixed(2)}</en>
           </strong>
           {Boolean(isProductInCart) && <p>Already in cart</p>}
         </section>

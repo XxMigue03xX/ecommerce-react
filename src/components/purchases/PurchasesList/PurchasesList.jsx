@@ -33,7 +33,7 @@ const PurchasesList = () => {
                 <li key={purchase.id} className="purchases-list__item">
                     <article className="purchase-container">
                         <div className="purchase-img-container">
-                            <img src={purchase.product.images[0].url} alt={purchase.product.title} />
+                            <img src={purchase.product.images?.[0].url} alt={purchase.product.title} />
                         </div>
                         <h5 className="purchase-title">{purchase.product.title}</h5>
                         <p className="purchase-date">{purchaseDate(purchase.createdAt)}</p>
